@@ -16,6 +16,7 @@ export interface Project {
   thumbnail: string;
   published: boolean;
   featured?: boolean;
+  readingTime?: string;
   toc: TocItem[];
   content: string;
 }
