@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Martzcode
 
-## Getting Started
+A personal portfolio and blog built with **Next.js**, showcasing projects, writing, and contact information for Martin Leroux — a creative full-stack engineer working with React, Next.js, and Tailwind CSS.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Modern stack** — Next.js (App Router), React 19, TypeScript, and Tailwind CSS v4.
+- **Content-driven** — Blog posts and projects are written in MDX with frontmatter (title, description, date, tags, cover/thumbnail images) and rendered with `next-mdx-remote`.
+- **Search** — Client-side fuzzy search powered by `fuse.js`.
+- **Smooth UX** — Animations with `framer-motion` and an animated tube-light navigation bar.
+- **Responsive UI** — Mobile-first components with `lucide-react` and `react-icons`.
+- **Pages** — Home, Projects, Blog, About, Contact, Privacy, and Terms.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Martzcode
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Un portfolio personnel et un blog construit avec **Next.js**, présentant les projets, les écrits et les coordonnées de Martin Leroux — ingénieur full-stack créatif travaillant avec React, Next.js et Tailwind CSS.
 
-## Learn More
+## Fonctionnalités
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Stack moderne** — Next.js (App Router), React 19, TypeScript et Tailwind CSS v4.
+- **Contenu piloté par fichiers** — Les articles de blog et les projets sont rédigés en MDX avec un frontmatter (titre, description, date, tags, images de couverture/vignette) et rendus via `next-mdx-remote`.
+- **Recherche** — Recherche floue côté client grâce à `fuse.js`.
+- **Expérience fluide** — Animations avec `framer-motion` et une barre de navigation animée de type « tube-light ».
+- **Interface responsive** — Composants mobile-first avec `lucide-react` et `react-icons`.
+- **Pages** — Accueil, Projets, Blog, À propos, Contact, Confidentialité et Conditions.
