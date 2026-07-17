@@ -4,14 +4,9 @@ import { notFound } from "next/navigation";
 import { FeatureDemo } from "@/components/blocks/feature-section-with-grid";
 import { getPaginatedPosts } from "@/lib/content";
 
-type Params = { page: string };
+export const dynamic = "force-dynamic";
 
-export function generateStaticParams() {
-  const { totalPages } = getPaginatedPosts(1);
-  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => ({
-    page: `${i + 2}`,
-  }));
-}
+type Params = { page: string };
 
 export async function generateMetadata({
   params,

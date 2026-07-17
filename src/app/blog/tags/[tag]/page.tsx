@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { getAllTags, getPostsByTag } from "@/lib/content";
 import { Badge } from "@/components/ui/badge";
 
+export const dynamic = "force-dynamic";
+
 type Params = { tag: string };
 
 export function generateStaticParams() {

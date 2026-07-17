@@ -117,6 +117,22 @@ function sortByDateDesc<T extends { date: string }>(items: T[]): T[] {
   return items.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
+/** Vrai si la date est strictement postérieure à aujourd'hui (article programmé, pas encore publiable). */
+export function isUpcoming(dateStr: string): boolean {
+  const d = new Date(dateStr);
+  if (Number.isNaN(d.getTime())) return false;
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  d.setHours(0, 0, 0, 0);
+  return d.getTime() > today.getTime();
+}
+
+/** Filtre public : publié ET pas à venir. `includeUnpublished` (preview) tout garde. */
+function isVisible(item: { published: boolean; date: string }, includeUnpublished: boolean): boolean {
+  if (includeUnpublished) return true;
+  return item.published && !isUpcoming(item.date);
+}
+
 // ---------- BLOG ----------
 
 export function getAllPosts(includeUnpublished = false): PostPreview[] {
@@ -136,7 +152,7 @@ export function getAllPosts(includeUnpublished = false): PostPreview[] {
   });
 
   return sortByDateDesc(
-    posts.filter((p) => includeUnpublished || p.published),
+    posts.filter((p) => isVisible(p, includeUnpublished)),
   );
 }
 
@@ -219,7 +235,7 @@ export function getAllProjects(includeUnpublished = false): ProjectPreview[] {
   });
 
   return sortByDateDesc(
-    projects.filter((p) => includeUnpublished || p.published),
+    projects.filter((p) => isVisible(p, includeUnpublished)),
   );
 }
 

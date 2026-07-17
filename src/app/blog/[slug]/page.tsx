@@ -6,11 +6,13 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/content";
+import { getAllPosts, getPostBySlug, getRelatedPosts, isUpcoming } from "@/lib/content";
 import { mdxComponents } from "@/components/mdx";
 import { Badge } from "@/components/ui/badge";
 
 type Params = { slug: string };
+
+export const dynamic = "force-dynamic";
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -38,7 +40,7 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
-  if (!post) notFound();
+  if (!post || !post.published || isUpcoming(post.date)) notFound();
 
   const related = getRelatedPosts(post.slug, post.tags);
 

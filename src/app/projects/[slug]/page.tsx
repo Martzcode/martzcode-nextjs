@@ -6,12 +6,14 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-import { getAllProjects, getProjectBySlug, type ProjectStatus } from "@/lib/content";
+import { getAllProjects, getProjectBySlug, isUpcoming, type ProjectStatus } from "@/lib/content";
 import { mdxComponents } from "@/components/mdx";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
 type Params = { slug: string };
+
+export const dynamic = "force-dynamic";
 
 const statusLabels: Record<ProjectStatus, string> = {
   "en-cours": "En cours",
@@ -45,7 +47,7 @@ export default async function ProjectPage({
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
-  if (!project) notFound();
+  if (!project || !project.published || isUpcoming(project.date)) notFound();
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10">
