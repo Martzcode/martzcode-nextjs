@@ -1,8 +1,9 @@
 "use client"
 
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { LucideIcon } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -18,7 +19,15 @@ interface NavBarProps {
 }
 
 export function NavBar({ items, className }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name)
+  const pathname = usePathname()
+  const [activeTab, setActiveTab] = useState(
+    items.find((item) => item.url === pathname)?.name ?? items[0].name,
+  )
+
+  useEffect(() => {
+    const current = items.find((item) => item.url === pathname)
+    if (current) setActiveTab(current.name)
+  }, [pathname, items])
 
   return (
     <div

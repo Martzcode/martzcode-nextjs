@@ -23,9 +23,9 @@ export default function Example() {
           <p className="-translate-x-2 font-medium">Join community of 1m+ founders </p>
         </div>
         <h1 className="text-4xl md:text-5xl md:leading-[60px] font-semibold max-w-xl mt-5 bg-gradient-to-r from-white to-[#CAABFF] text-transparent bg-clip-text">Unlock your next big opportunity.</h1>
-        <button className="px-8 py-3 text-white bg-violet-600 hover:bg-violet-700 transition-all rounded-full uppercase text-sm mt-8">
-          Join Discord
-        </button>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-3 text-white bg-violet-600 hover:bg-violet-700 transition-all rounded-full uppercase text-sm mt-8">
+          Follow us on GitHub
+        </a>
       </div>
     </>
   );
