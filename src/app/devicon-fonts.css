@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "devicon";
+  src:
+    url("/fonts/devicon.eot?#iefix") format("embedded-opentype"),
+    url("/fonts/devicon.woff") format("woff"),
+    url("/fonts/devicon.ttf") format("truetype"),
+    url("/fonts/devicon.svg#devicon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
