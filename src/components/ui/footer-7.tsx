@@ -54,15 +54,15 @@ const defaultSections = [
   {
     title: "Legal",
     links: [
-      { name: "Privacy Policy", href: "#" },
-      { name: "Terms & Conditions", href: "#" },
+      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Terms & Conditions", href: "/terms" },
     ],
   },
 ];
 
 const defaultLegalLinks = [
-  { name: "Terms and Conditions", href: "#" },
-  { name: "Privacy Policy", href: "#" },
+  { name: "Terms and Conditions", href: "/terms" },
+  { name: "Privacy Policy", href: "/privacy" },
 ];
 
 const defaultSocialLinks = [
@@ -103,13 +103,13 @@ export const Footer7 = ({
 }: Footer7Props) => {
   return (
     <footer className="border-t bg-background">
-      <section className="py-20">
+      <section className="py-12 md:py-20">
         <div className="container mx-auto">
-          <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
+          <div className="hidden w-full flex-col justify-between gap-10 md:flex md:flex-row md:items-start md:text-left">
             <div className="flex w-full flex-col justify-between gap-6 lg:items-start">
               {/* Logo */}
               <div className="flex items-center gap-2 lg:justify-start">
-                <a href={logo.url} aria-label={logo.title}>
+                <Link href={logo.url} aria-label={logo.title}>
                   {logo.src ? (
                     <img
                       src={logo.src}
@@ -122,7 +122,7 @@ export const Footer7 = ({
                       {logo.title}
                     </span>
                   )}
-                </a>
+                </Link>
               </div>
               <p className="max-w-[70%] text-sm text-muted-foreground">
                 {description}
@@ -171,7 +171,7 @@ export const Footer7 = ({
             <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
               {legalLinks.map((link, idx) => (
                 <li key={idx} className="hover:text-primary">
-                  <a href={link.href}> {link.name}</a>
+                  <Link href={link.href}>{link.name}</Link>
                 </li>
               ))}
             </ul>
