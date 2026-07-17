@@ -1,0 +1,40 @@
+---
+title: "Mon premier article"
+description: "Un exemple d'article de blog pour tester le rendu MDX, la table des matières et les tags."
+date: "2026-07-17"
+tags:
+  - "nextjs"
+  - "tutorial"
+coverImage: "/images/blog/mon-premier-article/cover.jpg"
+thumbnail: "/images/blog/mon-premier-article/thumbnail.jpg"
+published: true
+---
+
+Bienvenue dans mon premier article ! Ce fichier sert d'exemple pour valider
+la chaîne de rendu : frontmatter validé par zod, corps MDX, table des
+matières générée automatiquement et temps de lecture.
+
+## Pourquoi ce setup
+
+Le contenu est stocké en fichiers `.mdx` dans `src/content/blog`. Chaque
+article expose ses métadonnées en frontmatter et son corps en Markdown
+enrichi de JSX.
+
+### Avantages
+
+- Pas de base de données nécessaire
+- Contenu versionné dans Git
+- Édition possible dans n'importe quel éditeur
+
+## Un peu de code
+
+```ts
+export function salut(name: string) {
+  return `Salut ${name} !`;
+}
+```
+
+## Conclusion
+
+Cet article de démonstration confirme que la page de lecture fonctionne.
+N'hésitez pas à le dupliquer avec `./new-content.sh blog mon-slug`.
