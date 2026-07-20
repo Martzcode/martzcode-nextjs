@@ -34,6 +34,9 @@ export async function generateMetadata({
   return {
     title: dict.meta.title,
     description: dict.meta.description,
+    verification: {
+      google: "cbeHZxaAXv-YMyHOh3irXaWwClg-qTSQDeTj02p_1Po",
+    },
   };
 }
 
