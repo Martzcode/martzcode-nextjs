@@ -141,8 +141,9 @@ La table des matières et le temps de lecture sont générés automatiquement.
 
 ## 7. SEO & Google Search Console
 
-- **`src/app/sitemap.ts`** génère `/sitemap.xml` (pages statiques + articles +
-  projets, dans les deux langues, avec balises `hreflang` alternates).
+- **`src/app/sitemap.xml/route.ts`** génère `/sitemap.xml` (pages statiques +
+  articles + projets, dans les deux langues, avec balises `hreflang` alternates,
+  XML pretty-printé).
 - **`src/app/robots.ts`** génère `/robots.txt` (pointe vers le sitemap).
 - **Vérification GSC** : la balise
   `google-site-verification` est injectée via le champ `verification` des

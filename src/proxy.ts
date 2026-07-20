@@ -22,6 +22,11 @@ function getLocale(request: NextRequest): Locale {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Never redirect static assets or special files (sitemap.xml, robots.txt).
+  // Checked in code (not only via the matcher regex) so it is reliable on
+  // every runtime (Node and Vercel edge).
+  if (pathname.includes(".")) return;
+
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
