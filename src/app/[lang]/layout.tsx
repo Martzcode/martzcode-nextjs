@@ -55,7 +55,7 @@ export default async function RootLayout({
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col sm:pt-20 pb-28 sm:pb-0">
+      <body className="min-h-full flex flex-col px-4 sm:px-0 sm:pt-20 pb-28 sm:pb-0">
         <Navbar locale={locale} labels={dict.nav} />
         {children}
         <Footer7
