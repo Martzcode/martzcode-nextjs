@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Martzcode",
-    "description": "Portfolio de Martin Leroux — ingénieur full-stack créatif."
+    "description": "Portfolio de Marcello Samiandrisoa — ingénieur full-stack créatif."
   },
   "nav": {
     "home": "Accueil",
@@ -15,7 +15,7 @@
   },
   "home": {
     "title": "Des expériences web rapides et soignées",
-    "description": "Je suis Martin — un ingénieur full-stack créatif qui construit des produits accessibles et polis avec React, Next.js et Tailwind CSS.",
+    "description": "Je suis Marcello — un ingénieur full-stack créatif qui construit des produits accessibles et polis avec React, Next.js et Tailwind CSS.",
     "primaryLabel": "Voir mes projets",
     "secondaryLabel": "Lire le blog"
   },
@@ -106,7 +106,7 @@
   },
   "footer": {
     "description": "Ingénieur full-stack créatif qui construit des expériences web rapides, réfléchies et accessibles avec React, Next.js et Tailwind CSS.",
-    "copyright": "© 2026 Martin Leroux. Tous droits réservés.",
+    "copyright": "© 2026 Marcello Samiandrisoa. Tous droits réservés.",
     "terms": "Conditions générales",
     "privacy": "Politique de confidentialité"
   },

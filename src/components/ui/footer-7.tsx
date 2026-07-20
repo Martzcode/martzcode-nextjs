@@ -49,7 +49,7 @@ export const Footer7 = ({
   },
   description = "Creative full-stack engineer crafting fast, thoughtful and accessible web experiences with React, Next.js and Tailwind CSS.",
   socialLinks = defaultSocialLinks,
-  copyright = "© 2026 Martin Leroux. All rights reserved.",
+  copyright = "© 2026 Marcello Samiandrisoa. All rights reserved.",
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (

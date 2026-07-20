@@ -74,12 +74,12 @@ export default async function AboutPage({
       <header className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
         <img
           src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&q=80"
-          alt="Portrait of Martin"
+          alt="Portrait of Marcello"
           className="h-28 w-28 rounded-full object-cover ring-2 ring-border shadow-lg"
         />
         <div className="flex-1">
           <h1 className="text-4xl font-bold tracking-tight text-foreground">
-            Martin Leroux
+            Marcello Samiandrisoa
           </h1>
           <p className="mt-1 text-lg font-medium text-cyan-500">
             Creative Full-Stack Engineer
