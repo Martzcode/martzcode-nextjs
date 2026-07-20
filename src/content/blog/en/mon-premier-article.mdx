@@ -1,0 +1,39 @@
+---
+title: "My first article"
+description: "A sample blog post to test MDX rendering, the table of contents and tags."
+date: "2026-07-17"
+tags:
+  - "nextjs"
+  - "tutorial"
+coverImage: "/images/blog/mon-premier-article/cover.jpg"
+thumbnail: "/images/blog/mon-premier-article/thumbnail.jpg"
+published: true
+---
+
+Welcome to my first article! This file serves as an example to validate the
+rendering pipeline: frontmatter validated with zod, MDX body, automatically
+generated table of contents and reading time.
+
+## Why this setup
+
+Content is stored as `.mdx` files in `src/content/blog`. Each article exposes
+its metadata in frontmatter and its body in Markdown enriched with JSX.
+
+### Benefits
+
+- No database required
+- Content versioned in Git
+- Editable in any editor
+
+## A bit of code
+
+```ts
+export function hello(name: string) {
+  return `Hello ${name}!`;
+}
+```
+
+## Conclusion
+
+This demo article confirms that the reading page works. Feel free to duplicate
+it with `./new-content.sh blog my-slug`.

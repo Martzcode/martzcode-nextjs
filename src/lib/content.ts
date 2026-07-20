@@ -5,8 +5,13 @@ import readingTime from "reading-time";
 import { z } from "zod";
 import { Post, PostPreview, TocItem } from "@/types/post";
 import { Project, ProjectPreview, ProjectStatus } from "@/types/project";
+import { defaultLocale, isLocale, type Locale } from "@/i18n/config";
 
 type ContentType = "blog" | "projets";
+
+function resolveLocale(locale?: string): Locale {
+  return locale && isLocale(locale) ? locale : defaultLocale;
+}
 
 const CONTENT_DIR = path.join(process.cwd(), "src", "content");
 
@@ -71,8 +76,8 @@ function extractToc(content: string): TocItem[] {
   return toc;
 }
 
-function getSlugs(type: ContentType): string[] {
-  const dir = path.join(CONTENT_DIR, type);
+function getSlugs(type: ContentType, locale: Locale): string[] {
+  const dir = path.join(CONTENT_DIR, type, locale);
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)
@@ -86,6 +91,7 @@ type Parsed<T extends ContentType> = T extends "blog"
 
 function readOne<T extends ContentType>(
   type: T,
+  locale: Locale,
   slug: string,
 ): {
   data: Parsed<T>;
@@ -93,7 +99,7 @@ function readOne<T extends ContentType>(
   toc: TocItem[];
   readingTimeText: string;
 } {
-  const filePath = path.join(CONTENT_DIR, type, `${slug}.mdx`);
+  const filePath = path.join(CONTENT_DIR, type, locale, `${slug}.mdx`);
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
 
@@ -135,9 +141,13 @@ function isVisible(item: { published: boolean; date: string }, includeUnpublishe
 
 // ---------- BLOG ----------
 
-export function getAllPosts(includeUnpublished = false): PostPreview[] {
-  const posts = getSlugs("blog").map((slug) => {
-    const { data, readingTimeText } = readOne("blog", slug);
+export function getAllPosts(
+  locale?: string,
+  includeUnpublished = false,
+): PostPreview[] {
+  const loc = resolveLocale(locale);
+  const posts = getSlugs("blog", loc).map((slug) => {
+    const { data, readingTimeText } = readOne("blog", loc, slug);
     return {
       slug,
       title: data.title,
@@ -156,10 +166,11 @@ export function getAllPosts(includeUnpublished = false): PostPreview[] {
   );
 }
 
-export function getPostBySlug(slug: string): Post | null {
-  if (!getSlugs("blog").includes(slug)) return null;
+export function getPostBySlug(slug: string, locale?: string): Post | null {
+  const loc = resolveLocale(locale);
+  if (!getSlugs("blog", loc).includes(slug)) return null;
 
-  const { data, content, toc, readingTimeText } = readOne("blog", slug);
+  const { data, content, toc, readingTimeText } = readOne("blog", loc, slug);
 
   return {
     slug,
@@ -176,17 +187,18 @@ export function getPostBySlug(slug: string): Post | null {
   };
 }
 
-export function getPostsByTag(tag: string): PostPreview[] {
-  return getAllPosts().filter((p) => p.tags.includes(tag));
+export function getPostsByTag(tag: string, locale?: string): PostPreview[] {
+  return getAllPosts(locale).filter((p) => p.tags.includes(tag));
 }
 
 export const POSTS_PER_PAGE = 6;
 
 export function getPaginatedPosts(
   page = 1,
+  locale?: string,
   perPage = POSTS_PER_PAGE,
 ): { posts: PostPreview[]; page: number; totalPages: number; total: number } {
-  const all = getAllPosts();
+  const all = getAllPosts(locale);
   const total = all.length;
   const totalPages = Math.max(1, Math.ceil(total / perPage));
   const current = Math.min(Math.max(1, page), totalPages);
@@ -195,8 +207,8 @@ export function getPaginatedPosts(
   return { posts, page: current, totalPages, total };
 }
 
-export function getAllTags(): string[] {
-  const tags = getAllPosts().flatMap((p) => p.tags);
+export function getAllTags(locale?: string): string[] {
+  const tags = getAllPosts(locale).flatMap((p) => p.tags);
   return Array.from(new Set(tags)).sort();
 }
 
@@ -204,18 +216,23 @@ export function getAllTags(): string[] {
 export function getRelatedPosts(
   currentSlug: string,
   tags: string[],
+  locale?: string,
   limit = 3,
 ): PostPreview[] {
-  return getAllPosts()
+  return getAllPosts(locale)
     .filter((p) => p.slug !== currentSlug && p.tags.some((t) => tags.includes(t)))
     .slice(0, limit);
 }
 
 // ---------- PROJETS (structure miroir) ----------
 
-export function getAllProjects(includeUnpublished = false): ProjectPreview[] {
-  const projects = getSlugs("projets").map((slug) => {
-    const { data, readingTimeText } = readOne("projets", slug);
+export function getAllProjects(
+  locale?: string,
+  includeUnpublished = false,
+): ProjectPreview[] {
+  const loc = resolveLocale(locale);
+  const projects = getSlugs("projets", loc).map((slug) => {
+    const { data, readingTimeText } = readOne("projets", loc, slug);
     return {
       slug,
       title: data.title,
@@ -239,10 +256,11 @@ export function getAllProjects(includeUnpublished = false): ProjectPreview[] {
   );
 }
 
-export function getProjectBySlug(slug: string): Project | null {
-  if (!getSlugs("projets").includes(slug)) return null;
+export function getProjectBySlug(slug: string, locale?: string): Project | null {
+  const loc = resolveLocale(locale);
+  if (!getSlugs("projets", loc).includes(slug)) return null;
 
-  const { data, content, toc, readingTimeText } = readOne("projets", slug);
+  const { data, content, toc, readingTimeText } = readOne("projets", loc, slug);
 
   return {
     slug,

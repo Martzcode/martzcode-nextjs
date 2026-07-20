@@ -1,0 +1,213 @@
+{
+  "meta": {
+    "title": "Martzcode",
+    "description": "Portfolio de Martin Leroux — ingénieur full-stack créatif."
+  },
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "blog": "Blog",
+    "about": "À propos",
+    "contact": "Contact"
+  },
+  "language": {
+    "label": "Langue"
+  },
+  "home": {
+    "title": "Des expériences web rapides et soignées",
+    "description": "Je suis Martin — un ingénieur full-stack créatif qui construit des produits accessibles et polis avec React, Next.js et Tailwind CSS.",
+    "primaryLabel": "Voir mes projets",
+    "secondaryLabel": "Lire le blog"
+  },
+  "projects": {
+    "title": "Projets",
+    "description": "Découvrez une sélection de projets personnels et professionnels construits avec les technologies web modernes. Chaque carte mène à une étude de cas détaillée."
+  },
+  "blog": {
+    "eyebrow": "Blog",
+    "title": "Derniers articles",
+    "description": "Notes, tutoriels et idées sur la création pour le web.",
+    "readMore": "Lire la suite",
+    "previous": "← Précédent",
+    "next": "Suivant →",
+    "backToBlog": "← Retour au blog",
+    "relatedTitle": "Articles connexes",
+    "toc": "Sommaire",
+    "tagPrefix": "Tag :",
+    "tagCountOne": "article",
+    "tagCountOther": "articles",
+    "notFound": "Article introuvable"
+  },
+  "project": {
+    "back": "← Retour aux projets",
+    "toc": "Sommaire",
+    "featured": "En vedette",
+    "source": "Code source",
+    "demo": "Démo",
+    "notFound": "Projet introuvable",
+    "status": {
+      "en-cours": "En cours",
+      "termine": "Terminé",
+      "archive": "Archivé"
+    }
+  },
+  "about": {
+    "summary": "Je suis un ingénieur full-stack passionné par la création de produits numériques réfléchis, rapides et accessibles. Avec un parcours allant des startups aux studios, j'apprécie l'ensemble du cycle produit — du croquis d'interactions au déploiement de systèmes résilients. Quand je ne code pas, vous me trouverez en train de photographier des paysages urbains et de tricoter avec l'art génératif.",
+    "experience": "Expérience",
+    "education": "Formation",
+    "experienceItems": [
+      {
+        "date": "2023 — Aujourd'hui",
+        "title": "Ingénieur Full-Stack Senior · Nebula Labs",
+        "content": "Pilote l'architecture d'une plateforme d'analytique temps réel servant plus de 2 M d'utilisateurs par jour. A construit le design system et encadré une équipe de cinq ingénieurs, livrant des fonctionnalités du concept à la production avec Next.js, TypeScript et Go."
+      },
+      {
+        "date": "2020 — 2023",
+        "title": "Ingénieur Frontend · Orbit Studio",
+        "content": "A créé des interfaces accessibles et pixel-perfect pour des projets clients primés. A introduit une bibliothèque de composants qui a réduit le délai de livraison de 40 % et défendu des budgets de performance au sein de l'équipe."
+      },
+      {
+        "date": "2018 — 2020",
+        "title": "Développeur Junior · Brightseed",
+        "content": "A développé des outils internes et des sites vitrines, apprenant le métier d'un code propre et maintenable. A piloté la migration d'une application Rails legacy vers une stack React moderne."
+      }
+    ],
+    "educationItems": [
+      {
+        "date": "2014 — 2018",
+        "title": "Licence en informatique · Université de Montréal",
+        "content": "Diplômé avec mention. Spécialisation en interaction homme-machine et systèmes distribués. A dirigé l'organisation du hackathon étudiant pendant deux années consécutives."
+      },
+      {
+        "date": "2017",
+        "title": "Semestre d'échange · KTH Royal Institute of Technology",
+        "content": "A étudié le design d'interaction à Stockholm, élargissant sa perspective sur une pensée produit minimaliste et centrée sur l'utilisateur qui façonne encore son travail."
+      }
+    ]
+  },
+  "contact": {
+    "badge": "Contactez-moi",
+    "title": "J'aimerais avoir de vos nouvelles.",
+    "intro": "Ou contactez-moi directement à",
+    "emailLabel": "Support email",
+    "emailDescription": "Notre équipe peut répondre en temps réel.",
+    "emailValue": "hello@martzcode.dev",
+    "linkedinLabel": "LinkedIn",
+    "linkedinDescription": "Connectez-vous avec moi sur LinkedIn.",
+    "linkedinValue": "linkedin.com/martzcode",
+    "phoneLabel": "Appelez-moi directement",
+    "phoneDescription": "Disponible en heures ouvrables.",
+    "phoneValue": "(+1) 234 - 4567 - 789",
+    "cta": {
+      "badge": "Rejoignez la communauté",
+      "title": "Débloquez votre prochaine grande opportunité.",
+      "button": "Suivez-moi sur GitHub"
+    }
+  },
+  "footer": {
+    "description": "Ingénieur full-stack créatif qui construit des expériences web rapides, réfléchies et accessibles avec React, Next.js et Tailwind CSS.",
+    "copyright": "© 2026 Martin Leroux. Tous droits réservés.",
+    "terms": "Conditions générales",
+    "privacy": "Politique de confidentialité"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité",
+    "updated": "Dernière mise à jour :",
+    "updatedDate": "17 juillet 2026",
+    "sections": [
+      {
+        "heading": "Aperçu",
+        "paragraphs": [
+          "La présente Politique de confidentialité explique comment Martzcode (« nous », « notre ») collecte, utilise et divulgue les informations lorsque vous visitez martzcode.dev (le « Site »). En utilisant le Site, vous acceptez les pratiques décrites dans cette politique."
+        ]
+      },
+      {
+        "heading": "Informations que nous collectons",
+        "paragraphs": [
+          "Nous ne collectons que les informations nécessaires au fonctionnement et à l'amélioration du Site :"
+        ],
+        "list": [
+          {
+            "label": "Données d'usage",
+            "text": "telles que les pages visitées, le type de navigateur, les informations sur l'appareil et la localisation approximative, collectées automatiquement via des technologies d'analytique et de publicité."
+          },
+          {
+            "label": "Informations de contact",
+            "text": "que vous fournissez volontairement en nous écrivant via le formulaire de contact (par exemple, votre nom et votre adresse email)."
+          }
+        ],
+        "paragraphsAfter": [
+          "Nous ne collectons pas sciemment d'informations personnelles auprès des enfants de moins de 13 ans."
+        ]
+      },
+      {
+        "heading": "Cookies et publicité",
+        "paragraphs": [
+          "Le Site utilise des cookies et des technologies similaires pour fonctionner correctement, analyser le trafic et servir des publicités pertinentes. Nous participons au programme Google AdSense, qui utilise des cookies pour diffuser des annonces en fonction de vos visites antérieures sur ce site et d'autres.",
+          "Google et ses partenaires peuvent utiliser des cookies publicitaires pour personnaliser les annonces que vous voyez. Vous pouvez vous désabonner de la publicité personnalisée en visitant la page Paramètres des annonces Google, et gérer les cookies via les paramètres de votre navigateur."
+        ]
+      },
+      {
+        "heading": "Analytique",
+        "paragraphs": [
+          "Nous pouvons utiliser des analytiques respectueuses de la vie privée pour comprendre comment le Site est utilisé. Ces données sont agrégées et ne vous identifient pas personnellement."
+        ]
+      },
+      {
+        "heading": "Vos droits",
+        "paragraphs": [
+          "Selon votre lieu de résidence, vous pouvez avoir le droit d'accéder, de corriger ou de supprimer les informations personnelles que nous détenons à votre sujet, et de vous opposer à certains traitements ou de les limiter. Pour exercer ces droits, contactez-nous aux coordonnées ci-dessous."
+        ]
+      },
+      {
+        "heading": "Contact",
+        "paragraphs": [
+          "Si vous avez des questions sur cette Politique de confidentialité, écrivez-nous à hello@martzcode.dev."
+        ]
+      }
+    ]
+  },
+  "terms": {
+    "title": "Conditions générales",
+    "updated": "Dernière mise à jour :",
+    "updatedDate": "17 juillet 2026",
+    "sections": [
+      {
+        "heading": "Acceptation des conditions",
+        "paragraphs": [
+          "En accédant à ou en utilisant martzcode.dev (le « Site »), vous acceptez d'être lié par les présentes Conditions générales. Si vous n'acceptez pas, veuillez ne pas utiliser le Site."
+        ]
+      },
+      {
+        "heading": "Utilisation du Site",
+        "paragraphs": [
+          "Le contenu fourni sur le Site est destiné à des fins d'information générale. Vous acceptez d'utiliser le Site de manière légale et de ne pas l'utiliser de façon abusive, le perturber ou tenter d'y accéder sans autorisation."
+        ]
+      },
+      {
+        "heading": "Propriété intellectuelle",
+        "paragraphs": [
+          "Tout texte, code et design original sur ce Site appartient à Martzcode, sauf indication contraire. Les marques, logos et noms de produits tiers appartiennent à leurs propriétaires respectifs."
+        ]
+      },
+      {
+        "heading": "Publicité",
+        "paragraphs": [
+          "Le Site peut afficher des publicités tierces, notamment via le programme Google AdSense. Nous ne sommes pas responsables du contenu ou des pratiques des annonceurs externes."
+        ]
+      },
+      {
+        "heading": "Avertissement",
+        "paragraphs": [
+          "Le Site est fourni « en l'état » sans garantie d'aucune sorte. Nous ne sommes pas responsables des dommages découlant de votre utilisation du Site."
+        ]
+      },
+      {
+        "heading": "Modifications",
+        "paragraphs": [
+          "Nous pouvons mettre à jour ces Conditions de temps à autre. L'utilisation continue du Site après modifications vaut acceptation des Conditions révisées."
+        ]
+      }
+    ]
+  }
+}

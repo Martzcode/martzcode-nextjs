@@ -3,9 +3,10 @@ set -e
 
 TYPE=$1   # "blog" ou "projets"
 SLUG=$2   # ex: "mon-super-article"
+LOCALE=${3:-fr}  # locale cible (fr par défaut)
 
 if [[ -z "$TYPE" || -z "$SLUG" ]]; then
-  echo "Usage: ./new-content.sh [blog|projets] mon-slug"
+  echo "Usage: ./new-content.sh [blog|projets] mon-slug [fr|en]"
   exit 1
 fi
 
@@ -14,7 +15,7 @@ if [[ "$TYPE" != "blog" && "$TYPE" != "projets" ]]; then
   exit 1
 fi
 
-CONTENT_DIR="src/content/$TYPE/$SLUG.mdx"
+CONTENT_DIR="src/content/$TYPE/$LOCALE/$SLUG.mdx"
 IMAGE_DIR="public/images/$TYPE/$SLUG"
 
 # Dossier images dédié à cet article/projet (cover + thumbnail)
