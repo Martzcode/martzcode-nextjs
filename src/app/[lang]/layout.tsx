@@ -6,7 +6,6 @@ import "devicon/devicon.min.css";
 import "../devicon-fonts.css";
 import Navbar from "@/app/_components/Navbar";
 import { Footer7 } from "@/components/ui/footer-7";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, locales, type Locale } from "@/i18n/config";
 
@@ -59,9 +58,6 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col sm:pt-20 pb-28 sm:pb-0">
         <Navbar locale={locale} labels={dict.nav} />
         {children}
-        <div className="mx-auto w-full max-w-5xl px-6 py-6">
-          <LocaleSwitcher current={locale} />
-        </div>
         <Footer7
           description={dict.footer.description}
           copyright={dict.footer.copyright}
