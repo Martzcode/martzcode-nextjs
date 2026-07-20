@@ -82,7 +82,7 @@ export default function StackFeatureSection({
       </div>
 
       {/* Right side: Orbit animation cropped to 1/4 */}
-      <div className="relative flex w-full items-center justify-center overflow-hidden h-64 lg:h-full lg:w-1/2 lg:justify-start">
+      <div className="relative hidden w-full items-center justify-center overflow-hidden h-64 lg:flex lg:h-full lg:w-1/2 lg:justify-start">
         <div className="relative mx-auto flex h-[34rem] w-[34rem] items-center justify-center sm:h-[50rem] sm:w-[50rem] lg:mx-0 lg:translate-x-[50%]">
           {/* Center Circle */}
           <div className="w-24 h-24 rounded-full bg-gray-50 dark:bg-gray-800 shadow-lg flex items-center justify-center">
