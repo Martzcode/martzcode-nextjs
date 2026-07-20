@@ -6,20 +6,21 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-import { getAllProjects, getProjectBySlug, isUpcoming, type ProjectStatus } from "@/lib/content";
+import {
+  getAllProjects,
+  getProjectBySlug,
+  isUpcoming,
+  type ProjectStatus,
+} from "@/lib/content";
+import { getDictionary } from "@/i18n/dictionaries";
+import { isLocale, type Locale } from "@/i18n/config";
 import { mdxComponents } from "@/components/mdx";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
-type Params = { slug: string };
+type Params = { lang: string; slug: string };
 
 export const dynamic = "force-dynamic";
-
-const statusLabels: Record<ProjectStatus, string> = {
-  "en-cours": "En cours",
-  termine: "Terminé",
-  archive: "Archivé",
-};
 
 export function generateStaticParams() {
   return getAllProjects().map((project) => ({ slug: project.slug }));
@@ -30,8 +31,9 @@ export async function generateMetadata({
 }: {
   params: Promise<Params>;
 }): Promise<Metadata> {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { lang, slug } = await params;
+  const locale = (isLocale(lang) ? lang : "fr") as Locale;
+  const project = getProjectBySlug(slug, locale);
   if (!project) return { title: "Projet introuvable" };
   return {
     title: project.title,
@@ -44,25 +46,29 @@ export default async function ProjectPage({
 }: {
   params: Promise<Params>;
 }) {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { lang, slug } = await params;
+  const locale = (isLocale(lang) ? lang : "fr") as Locale;
+  const dict = await getDictionary(locale);
+  const project = getProjectBySlug(slug, locale);
 
   if (!project || !project.published || isUpcoming(project.date)) notFound();
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10">
       <Link
-        href="/projects"
+        href={`/${locale}/projects`}
         className="text-sm text-muted-foreground hover:text-primary"
       >
-        ← Retour aux projets
+        ← {dict.project.back}
       </Link>
 
       <article className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-[220px_1fr]">
         {project.toc.length > 0 && (
           <aside className="hidden lg:block">
             <div className="sticky top-24">
-              <p className="text-sm font-semibold text-foreground">Sommaire</p>
+              <p className="text-sm font-semibold text-foreground">
+                {dict.project.toc}
+              </p>
               <nav className="mt-3 space-y-2 text-sm">
                 {project.toc.map((item) => (
                   <a
@@ -85,8 +91,10 @@ export default async function ProjectPage({
         <div>
           <header className="space-y-4">
             <div className="flex flex-wrap items-center gap-2">
-              <Badge variant="outline">{statusLabels[project.status]}</Badge>
-              {project.featured && <Badge>En vedette</Badge>}
+              <Badge variant="outline">
+                {dict.project.status[project.status as ProjectStatus]}
+              </Badge>
+              {project.featured && <Badge>{dict.project.featured}</Badge>}
             </div>
             <h1 className="text-4xl font-bold tracking-tight text-foreground">
               {project.title}
@@ -107,14 +115,14 @@ export default async function ProjectPage({
               {project.repoUrl && (
                 <Button asChild variant="outline" size="sm">
                   <a href={project.repoUrl} target="_blank" rel="noreferrer">
-                    Code source
+                    {dict.project.source}
                   </a>
                 </Button>
               )}
               {project.demoUrl && (
                 <Button asChild size="sm">
                   <a href={project.demoUrl} target="_blank" rel="noreferrer">
-                    Démo
+                    {dict.project.demo}
                   </a>
                 </Button>
               )}

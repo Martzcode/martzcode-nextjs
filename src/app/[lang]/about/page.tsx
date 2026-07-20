@@ -5,6 +5,9 @@ import {
   GraduationCap,
   Briefcase,
 } from "lucide-react";
+import { getDictionary } from "@/i18n/dictionaries";
+import { isLocale, type Locale } from "@/i18n/config";
+import Timeline_02, { type TimelineEntry } from "@/components/ui/timeline-02";
 
 function GithubIcon({ size = 15 }: { size?: number }) {
   return (
@@ -33,45 +36,38 @@ function LinkedinIcon({ size = 15 }: { size?: number }) {
     </svg>
   );
 }
-import Timeline_02, { type TimelineEntry } from "@/components/ui/timeline-02";
 
-const experience: TimelineEntry[] = [
-  {
-    date: "2023 — Present",
-    title: "Senior Full-Stack Engineer · Nebula Labs",
-    content:
-      "Lead the architecture of a real-time analytics platform serving 2M+ daily users. Built the design system and mentored a team of five engineers, shipping features from concept to production with Next.js, TypeScript and Go.",
-  },
-  {
-    date: "2020 — 2023",
-    title: "Frontend Engineer · Orbit Studio",
-    content:
-      "Crafted pixel-perfect, accessible interfaces for award-winning client projects. Introduced a component library that cut delivery time by 40% and championed performance budgets across the team.",
-  },
-  {
-    date: "2018 — 2020",
-    title: "Junior Developer · Brightseed",
-    content:
-      "Developed internal tools and marketing sites, learning the craft of clean, maintainable code. Owned the migration of a legacy Rails app to a modern React stack.",
-  },
-];
+type ExperienceEntry = {
+  date: string;
+  title: string;
+  content: string;
+};
 
-const education: TimelineEntry[] = [
-  {
-    date: "2014 — 2018",
-    title: "B.Sc. in Computer Science · Université de Montréal",
-    content:
-      "Graduated with honours. Focused on human-computer interaction and distributed systems. Led the student hackathon organisation for two consecutive years.",
-  },
-  {
-    date: "2017",
-    title: "Exchange Semester · KTH Royal Institute of Technology",
-    content:
-      "Studied interaction design in Stockholm, broadening perspective on minimal, user-centred product thinking that still shapes my work today.",
-  },
-];
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const locale = (isLocale(lang) ? lang : "fr") as Locale;
+  const dict = await getDictionary(locale);
 
-export default function AboutPage() {
+  const experience: TimelineEntry[] = (
+    dict.about.experienceItems as ExperienceEntry[]
+  ).map((item) => ({
+    date: item.date,
+    title: item.title,
+    content: item.content,
+  }));
+
+  const education: TimelineEntry[] = (
+    dict.about.educationItems as ExperienceEntry[]
+  ).map((item) => ({
+    date: item.date,
+    title: item.title,
+    content: item.content,
+  }));
+
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-16">
       {/* Profile header */}
@@ -120,19 +116,14 @@ export default function AboutPage() {
           <Code2 size={20} className="text-cyan-500" /> About
         </h2>
         <p className="max-w-2xl leading-8 text-muted-foreground">
-          I&apos;m a full-stack engineer passionate about building thoughtful,
-          fast and accessible digital products. With a background spanning
-          startups and studios, I enjoy the full arc of product work — from
-          sketching interactions to shipping resilient systems. When I&apos;m not
-          coding, you&apos;ll find me photographing cityscapes and tinkering
-          with generative art.
+          {dict.about.summary}
         </p>
       </section>
 
       {/* Experience timeline */}
       <section className="mt-16">
         <h2 className="mb-8 flex items-center gap-2 text-xl font-semibold text-foreground">
-          <Briefcase size={20} className="text-cyan-500" /> Experience
+          <Briefcase size={20} className="text-cyan-500" /> {dict.about.experience}
         </h2>
         <Timeline_02 title="" items={experience} className="py-0" />
       </section>
@@ -140,7 +131,7 @@ export default function AboutPage() {
       {/* Education timeline */}
       <section className="mt-16">
         <h2 className="mb-8 flex items-center gap-2 text-xl font-semibold text-foreground">
-          <GraduationCap size={20} className="text-cyan-500" /> Education
+          <GraduationCap size={20} className="text-cyan-500" /> {dict.about.education}
         </h2>
         <Timeline_02 title="" items={education} className="py-0" />
       </section>

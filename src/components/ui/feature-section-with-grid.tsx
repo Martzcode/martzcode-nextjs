@@ -16,16 +16,30 @@ export interface FeaturePagination {
   totalPages: number;
 }
 
-function pageHref(page: number): string {
-  return page <= 1 ? "/blog" : `/blog/page/${page}`;
+function pageHref(page: number, locale: string): string {
+  return page <= 1 ? `/${locale}/blog` : `/${locale}/blog/page/${page}`;
 }
 
 function Feature({
   posts,
   pagination,
+  locale,
+  eyebrow,
+  title,
+  description,
+  readMore,
+  previous,
+  next,
 }: {
   posts: FeaturePost[];
   pagination?: FeaturePagination;
+  locale: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  readMore: string;
+  previous: string;
+  next: string;
 }) {
   return (
     <div className="w-full py-20 lg:py-40">
@@ -33,14 +47,14 @@ function Feature({
         <div className="flex flex-col gap-10">
           <div className="flex gap-4 flex-col items-start">
             <div>
-              <Badge>Blog</Badge>
+              <Badge>{eyebrow}</Badge>
             </div>
             <div className="flex gap-2 flex-col">
               <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left">
-                Latest posts
+                {title}
               </h2>
               <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground text-left">
-                Notes, tutorials and ideas on building for the web.
+                {description}
               </p>
             </div>
           </div>
@@ -62,7 +76,7 @@ function Feature({
                   {post.description}
                 </p>
                 <Button asChild variant="link" className="mt-auto self-start p-0">
-                  <Link href={post.href}>Read more</Link>
+                  <Link href={post.href}>{readMore}</Link>
                 </Button>
               </article>
             ))}
@@ -72,7 +86,7 @@ function Feature({
             <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
               {pagination.page > 1 && (
                 <Button asChild variant="outline" size="sm">
-                  <Link href={pageHref(pagination.page - 1)}>← Précédent</Link>
+                   <Link href={pageHref(pagination.page - 1, locale)}>{previous}</Link>
                 </Button>
               )}
               {Array.from({ length: pagination.totalPages }, (_, i) => i + 1).map(
@@ -83,13 +97,13 @@ function Feature({
                     variant={p === pagination.page ? "default" : "ghost"}
                     size="sm"
                   >
-                    <Link href={pageHref(p)}>{p}</Link>
+                     <Link href={pageHref(p, locale)}>{p}</Link>
                   </Button>
                 ),
               )}
               {pagination.page < pagination.totalPages && (
                 <Button asChild variant="outline" size="sm">
-                  <Link href={pageHref(pagination.page + 1)}>Suivant →</Link>
+                   <Link href={pageHref(pagination.page + 1, locale)}>{next}</Link>
                 </Button>
               )}
             </div>
