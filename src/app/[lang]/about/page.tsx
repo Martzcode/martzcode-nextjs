@@ -4,6 +4,7 @@ import {
   Code2,
   GraduationCap,
   Briefcase,
+  Download,
 } from "lucide-react";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/config";
@@ -108,13 +109,22 @@ export default async function AboutPage({
               <LinkedinIcon /> {siteConfig.linkedin.handle}
             </a>
           </div>
+          <div className="mt-6">
+            <a
+              href={`/api/cv?lang=${locale}`}
+              className="inline-flex items-center gap-2 rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
+            >
+              <Download size={16} />
+              {dict.about.downloadLabel}
+            </a>
+          </div>
         </div>
       </header>
 
       {/* Summary */}
       <section className="mt-12">
         <h2 className="mb-3 flex items-center gap-2 text-xl font-semibold text-foreground">
-          <Code2 size={20} className="text-cyan-500" /> About
+          <Code2 size={20} className="text-cyan-500" /> {dict.about.aboutLabel}
         </h2>
         <p className="max-w-2xl leading-8 text-muted-foreground">
           {dict.about.summary}

@@ -53,6 +53,7 @@
   },
   "about": {
     "summary": "Je suis un ingénieur full-stack passionné par la création de produits numériques réfléchis, rapides et accessibles. Avec un parcours allant des startups aux studios, j'apprécie l'ensemble du cycle produit — du croquis d'interactions au déploiement de systèmes résilients. Quand je ne code pas, vous me trouverez en train de photographier des paysages urbains et de tricoter avec l'art génératif.",
+    "aboutLabel": "À propos",
     "experience": "Expérience",
     "education": "Formation",
     "experienceItems": [
@@ -83,7 +84,8 @@
         "title": "Semestre d'échange · KTH Royal Institute of Technology",
         "content": "A étudié le design d'interaction à Stockholm, élargissant sa perspective sur une pensée produit minimaliste et centrée sur l'utilisateur qui façonne encore son travail."
       }
-    ]
+    ],
+    "downloadLabel": "Télécharger le CV"
   },
   "contact": {
     "badge": "Contactez-moi",
