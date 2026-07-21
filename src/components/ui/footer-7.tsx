@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { siteConfig } from "@/config/site";
 
 interface Footer7Props {
   logo?: {
@@ -25,12 +26,12 @@ interface Footer7Props {
 const defaultSocialLinks = [
   {
     icon: <FaGithub className="size-5" />,
-    href: "https://github.com",
+    href: siteConfig.github.url,
     label: "GitHub",
   },
   {
     icon: <FaLinkedin className="size-5" />,
-    href: "https://linkedin.com",
+    href: siteConfig.linkedin.url,
     label: "LinkedIn",
   },
 ];
@@ -44,12 +45,12 @@ export const Footer7 = ({
   logo = {
     url: "/",
     src: undefined,
-    alt: "Martzcode",
-    title: "Martzcode",
+    alt: siteConfig.title,
+    title: siteConfig.title,
   },
-  description = "Creative full-stack engineer crafting fast, thoughtful and accessible web experiences with React, Next.js and Tailwind CSS.",
+  description = `${siteConfig.role} crafting fast, thoughtful and accessible web experiences with React, Next.js and Tailwind CSS.`,
   socialLinks = defaultSocialLinks,
-  copyright = "© 2026 Marcello Samiandrisoa. All rights reserved.",
+  copyright = `© ${siteConfig.copyrightYear} ${siteConfig.name}. All rights reserved.`,
   legalLinks = defaultLegalLinks,
 }: Footer7Props) => {
   return (

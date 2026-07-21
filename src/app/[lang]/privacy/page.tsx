@@ -1,5 +1,6 @@
 import { getDictionary, type LegalSection } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/config";
+import { siteConfig } from "@/config/site";
 
 export async function generateMetadata({
   params,
@@ -10,7 +11,7 @@ export async function generateMetadata({
   const locale = (isLocale(lang) ? lang : "fr") as Locale;
   const dict = await getDictionary(locale);
   return {
-    title: `${dict.privacy.title} · Martzcode`,
+    title: `${dict.privacy.title} · ${siteConfig.title}`,
     description: dict.meta.description,
   };
 }

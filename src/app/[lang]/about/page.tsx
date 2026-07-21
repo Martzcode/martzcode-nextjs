@@ -4,9 +4,11 @@ import {
   Code2,
   GraduationCap,
   Briefcase,
+  Download,
 } from "lucide-react";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/config";
+import { siteConfig } from "@/config/site";
 import Timeline_02, { type TimelineEntry } from "@/components/ui/timeline-02";
 
 function GithubIcon({ size = 15 }: { size?: number }) {
@@ -79,32 +81,41 @@ export default async function AboutPage({
         />
         <div className="flex-1">
           <h1 className="text-4xl font-bold tracking-tight text-foreground">
-            Marcello Samiandrisoa
+            {siteConfig.name}
           </h1>
           <p className="mt-1 text-lg font-medium text-cyan-500">
-            Creative Full-Stack Engineer
+            {siteConfig.role}
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-muted-foreground sm:justify-start">
             <span className="inline-flex items-center gap-1.5">
-              <MapPin size={15} /> Montréal, Canada
+              <MapPin size={15} /> {siteConfig.location}
             </span>
             <a
-              href="mailto:hello@martzcode.dev"
+              href={`mailto:${siteConfig.email}`}
               className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
             >
-              <Mail size={15} /> hello@martzcode.dev
+              <Mail size={15} /> {siteConfig.email}
             </a>
             <a
-              href="https://github.com"
+              href={siteConfig.github.url}
               className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
             >
-              <GithubIcon /> github.com/martzcode
+              <GithubIcon /> {siteConfig.github.handle}
             </a>
             <a
-              href="https://linkedin.com"
+              href={siteConfig.linkedin.url}
               className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
             >
-              <LinkedinIcon /> in/martzcode
+              <LinkedinIcon /> {siteConfig.linkedin.handle}
+            </a>
+          </div>
+          <div className="mt-6">
+            <a
+              href={`/api/cv?lang=${locale}`}
+              className="inline-flex items-center gap-2 rounded-lg bg-foreground px-4 py-2 text-sm font-medium text-background transition-colors hover:bg-foreground/90"
+            >
+              <Download size={16} />
+              {dict.about.downloadLabel}
             </a>
           </div>
         </div>
@@ -113,7 +124,7 @@ export default async function AboutPage({
       {/* Summary */}
       <section className="mt-12">
         <h2 className="mb-3 flex items-center gap-2 text-xl font-semibold text-foreground">
-          <Code2 size={20} className="text-cyan-500" /> About
+          <Code2 size={20} className="text-cyan-500" /> {dict.about.aboutLabel}
         </h2>
         <p className="max-w-2xl leading-8 text-muted-foreground">
           {dict.about.summary}

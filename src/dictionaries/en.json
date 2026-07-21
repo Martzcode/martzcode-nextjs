@@ -53,6 +53,7 @@
   },
   "about": {
     "summary": "I'm a full-stack engineer passionate about building thoughtful, fast and accessible digital products. With a background spanning startups and studios, I enjoy the full arc of product work — from sketching interactions to shipping resilient systems. When I'm not coding, you'll find me photographing cityscapes and tinkering with generative art.",
+    "aboutLabel": "About",
     "experience": "Experience",
     "education": "Education",
     "experienceItems": [
@@ -83,7 +84,8 @@
         "title": "Exchange Semester · KTH Royal Institute of Technology",
         "content": "Studied interaction design in Stockholm, broadening perspective on minimal, user-centred product thinking that still shapes my work today."
       }
-    ]
+    ],
+    "downloadLabel": "Download CV"
   },
   "contact": {
     "badge": "Reach Out To Us",
@@ -91,13 +93,10 @@
     "intro": "Or just reach out manually to",
     "emailLabel": "Email Support",
     "emailDescription": "Our team can respond in real time.",
-    "emailValue": "hello@martzcode.dev",
     "linkedinLabel": "LinkedIn",
     "linkedinDescription": "Connect with me on LinkedIn.",
-    "linkedinValue": "linkedin.com/martzcode",
     "phoneLabel": "Call Us Directly",
     "phoneDescription": "Available during working hours.",
-    "phoneValue": "(+1) 234 - 4567 - 789",
     "cta": {
       "badge": "Join community of 1m+ founders",
       "title": "Unlock your next big opportunity.",
