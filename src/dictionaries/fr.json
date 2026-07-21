@@ -91,13 +91,10 @@
     "intro": "Ou contactez-moi directement à",
     "emailLabel": "Support email",
     "emailDescription": "Notre équipe peut répondre en temps réel.",
-    "emailValue": "hello@martzcode.dev",
     "linkedinLabel": "LinkedIn",
     "linkedinDescription": "Connectez-vous avec moi sur LinkedIn.",
-    "linkedinValue": "linkedin.com/martzcode",
     "phoneLabel": "Appelez-moi directement",
     "phoneDescription": "Disponible en heures ouvrables.",
-    "phoneValue": "(+1) 234 - 4567 - 789",
     "cta": {
       "badge": "Rejoignez la communauté",
       "title": "Débloquez votre prochaine grande opportunité.",

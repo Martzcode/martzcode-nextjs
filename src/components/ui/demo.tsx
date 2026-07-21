@@ -1,6 +1,7 @@
 import React from "react";
 import { FaEnvelope, FaLinkedin, FaPhone } from "react-icons/fa";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { siteConfig } from "@/config/site";
 
 export default function Example({ dict }: { dict: Dictionary["contact"] }) {
   return (
@@ -12,10 +13,10 @@ export default function Example({ dict }: { dict: Dictionary["contact"] }) {
       <p className="text-left mt-4">
         {dict.intro}{" "}
         <a
-          href={`mailto:${dict.emailValue}`}
+          href={`mailto:${siteConfig.email}`}
           className="text-indigo-600 hover:underline"
         >
-          {dict.emailValue}
+          {siteConfig.email}
         </a>
       </p>
       <div className="grid md:grid-cols-3 mt-16">
@@ -26,10 +27,10 @@ export default function Example({ dict }: { dict: Dictionary["contact"] }) {
           <p className="text-lg font-bold mt-2">{dict.emailLabel}</p>
           <p className="text-gray-500 mt-1 mb-4">{dict.emailDescription}</p>
           <a
-            href={`mailto:${dict.emailValue}`}
+            href={`mailto:${siteConfig.email}`}
             className="text-indigo-600 font-semibold"
           >
-            {dict.emailValue}
+            {siteConfig.email}
           </a>
         </div>
         <div>
@@ -39,12 +40,12 @@ export default function Example({ dict }: { dict: Dictionary["contact"] }) {
           <p className="text-lg font-bold mt-2">{dict.linkedinLabel}</p>
           <p className="text-gray-500 mt-1 mb-4">{dict.linkedinDescription}</p>
           <a
-            href="https://linkedin.com"
+            href={siteConfig.linkedin.url}
             target="_blank"
             rel="noopener noreferrer"
             className="text-indigo-600 font-semibold hover:underline"
           >
-            {dict.linkedinValue}
+            {siteConfig.linkedin.handle}
           </a>
         </div>
         <div>
@@ -54,7 +55,7 @@ export default function Example({ dict }: { dict: Dictionary["contact"] }) {
           <p className="text-lg font-bold mt-2">{dict.phoneLabel}</p>
           <p className="text-gray-500 mt-1 mb-4">{dict.phoneDescription}</p>
           <span className="text-indigo-600 font-semibold">
-            {dict.phoneValue}
+            {siteConfig.phone}
           </span>
         </div>
       </div>
