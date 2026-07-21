@@ -105,7 +105,27 @@ Pour ajouter une langue : l'ajouter dans `locales`, créer
 À renseigner en production (Vercel : *Project Settings → Environment
 Variables*) avec l'URL réelle du domaine.
 
-### 5.3 Notes Next.js 16
+### 5.3 Site config (nom, email, réseaux)
+
+Les informations personnelles (nom, email, téléphone, réseaux sociaux) sont centralisées dans `src/config/site.ts` :
+
+```ts
+export const siteConfig = {
+  name: "Marcello Samiandrisoa",
+  title: "Martzcode",
+  role: "Full-Stack Engineer",
+  location: "Antananarivo, Madagascar",
+  email: "msamiandrisoa@gmail.com",
+  phone: "(+261) 37 60 537 92",
+  copyrightYear: 2026,
+  github: { url: "https://github.com/martzcode", handle: "github.com/martzcode" },
+  linkedin: { url: "https://linkedin.com/in/martzcode", handle: "linkedin.com/in/martzcode" },
+};
+```
+
+Ce fichier est importé dans les pages (À propos, Contact, footer) et dans l'API de génération de CV. Modifier ces valeurs met automatiquement à jour tout le site.
+
+### 5.4 Notes Next.js 16
 
 - Le *middleware* s'appelle désormais **`proxy.ts`** (à la racine de `src/`),
   et non `middleware.ts`.
