@@ -11,7 +11,7 @@ export const siteConfig = {
     handle: "github.com/martzcode",
   },
   linkedin: {
-    url: "https://linkedin.com/in/martzcode",
-    handle: "linkedin.com/in/martzcode",
+    url: "https://linkedin.com/in/marcello-samiandrisoa",
+    handle: "linkedin.com/in/marcello-samiandrisoa",
   },
 };
