@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { siteConfig } from "@/config/site";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 export default function Example({ dict }: { dict: Dictionary["contact"]["cta"] }) {
@@ -43,7 +44,7 @@ export default function Example({ dict }: { dict: Dictionary["contact"]["cta"] }
           {dict.title}
         </h1>
         <a
-          href="https://github.com"
+          href={siteConfig.github.url}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block px-8 py-3 text-white bg-violet-600 hover:bg-violet-700 transition-all rounded-full uppercase text-sm mt-8"
