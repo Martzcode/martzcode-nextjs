@@ -75,14 +75,14 @@
     ],
     "educationItems": [
       {
-        "date": "2014 — 2018",
-        "title": "B.Sc. in Computer Science · Université de Montréal",
-        "content": "Graduated with honours. Focused on human-computer interaction and distributed systems. Led the student hackathon organisation for two consecutive years."
+        "date": "2022 — present",
+        "title": "B.Sc. then Master's in Computer Science · ITUniversity Madagascar",
+        "content": "Fullstack computer science track – bachelor's graduated in 2026, master's in progress. Proficient in Java, TypeScript, Spring Boot, Quarkus, and Angular. Experienced in web application development, REST API design, and microservices architecture."
       },
       {
-        "date": "2017",
-        "title": "Exchange Semester · KTH Royal Institute of Technology",
-        "content": "Studied interaction design in Stockholm, broadening perspective on minimal, user-centred product thinking that still shapes my work today."
+        "date": "2012 — 2017",
+        "title": "Master's in Accounting, Control and Audit · IAE Poitiers",
+        "content": "Advanced training in auditing, management control, and financial accounting. Skilled in financial analysis, account consolidation, budget management, and reporting. Delivered by the Institut d'Administration des Entreprises of Poitiers."
       }
     ],
     "downloadLabel": "Download CV"

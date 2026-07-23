@@ -75,14 +75,14 @@
     ],
     "educationItems": [
       {
-        "date": "2014 — 2018",
-        "title": "Licence en informatique · Université de Montréal",
-        "content": "Diplômé avec mention. Spécialisation en interaction homme-machine et systèmes distribués. A dirigé l'organisation du hackathon étudiant pendant deux années consécutives."
+        "date": "2022 — présent",
+        "title": "Licence puis Master en informatique · ITUniversity Madagascar",
+        "content": "Parcours fullstack en informatique – licence diplômée en 2026, master en cours. Technologies maîtrisées : Java, TypeScript, Spring Boot, Quarkus et Angular. Développement d'applications web, conception d'API REST, et architecture microservices."
       },
       {
-        "date": "2017",
-        "title": "Semestre d'échange · KTH Royal Institute of Technology",
-        "content": "A étudié le design d'interaction à Stockholm, élargissant sa perspective sur une pensée produit minimaliste et centrée sur l'utilisateur qui façonne encore son travail."
+        "date": "2012 — 2017",
+        "title": "Master en Comptabilité, Contrôle et Audit · IAE Poitiers",
+        "content": "Formation approfondie en audit, contrôle de gestion et comptabilité financière. Compétences en analyse financière, consolidation des comptes, gestion budgétaire et reporting. Dispensé par l'Institut d'Administration des Entreprises de Poitiers."
       }
     ],
     "downloadLabel": "Télécharger le CV"
