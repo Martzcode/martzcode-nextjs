@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { siteConfig } from "@/config/site";
@@ -63,11 +64,13 @@ export const Footer7 = ({
               <div className="flex items-center gap-2 lg:justify-start">
                 <Link href={logo.url} aria-label={logo.title}>
                   {logo.src ? (
-                    <img
+                    <Image
                       src={logo.src}
                       alt={logo.alt}
                       title={logo.title}
-                      className="h-8"
+                      width={32}
+                      height={32}
+                      className="h-8 w-auto"
                     />
                   ) : (
                     <span className="text-xl font-bold tracking-tight text-foreground">

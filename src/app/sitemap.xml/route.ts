@@ -11,8 +11,7 @@
 import { getAllPosts, getAllProjects, getAllTags, getPaginatedPosts } from "@/lib/content";
 import { locales, defaultLocale, type Locale } from "@/i18n/config";
 
-// Force le rendu dynamique pour que le sitemap reflète toujours le contenu actuel.
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://martzcode.vercel.app";
 

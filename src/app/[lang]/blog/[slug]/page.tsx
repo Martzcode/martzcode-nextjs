@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -14,7 +15,7 @@ import { Badge } from "@/components/ui/badge";
 
 type Params = { lang: string; slug: string };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -106,12 +107,15 @@ export default async function BlogPostPage({
               ))}
             </div>
             {post.coverImage && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={post.coverImage}
-                alt={post.title}
-                className="mt-4 w-full rounded-lg border border-border object-cover"
-              />
+              <div className="relative mt-4 aspect-video w-full overflow-hidden rounded-lg border border-border">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 768px"
+                />
+              </div>
             )}
           </header>
 

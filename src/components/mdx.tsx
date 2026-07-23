@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -108,10 +109,13 @@ export const mdxComponents: MDXComponents = {
     />
   ),
   img: ({ className, alt, ...props }) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       alt={alt ?? ""}
       className={cn("mt-6 rounded-lg border border-border", className)}
+      width={0}
+      height={0}
+      sizes="(max-width: 768px) 100vw, 768px"
+      style={{ width: "100%", height: "auto" }}
       {...props}
     />
   ),

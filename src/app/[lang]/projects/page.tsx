@@ -2,7 +2,7 @@ import { Gallery4Demo } from "@/components/blocks/gallery4";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/config";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function ProjectsPage({
   params,

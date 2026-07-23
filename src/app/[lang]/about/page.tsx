@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Mail, MapPin, Code2, GraduationCap, Briefcase, Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -40,9 +41,11 @@ export default async function AboutPage({
     <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-16">
       {/* Profile header */}
       <header className="flex flex-col items-center gap-6 text-center sm:flex-row sm:text-left">
-        <img
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=240&q=80"
+        <Image
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80"
           alt="Portrait of Marcello"
+          width={112}
+          height={112}
           className="h-28 w-28 rounded-full object-cover ring-2 ring-border shadow-lg"
         />
         <div className="flex-1">

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -61,11 +62,15 @@ function Feature({
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post, index) => (
               <article key={index} className="flex h-full flex-col gap-3">
-                <img
-                  src={post.image}
-                  alt={post.title}
-                  className="rounded-md aspect-video w-full object-cover"
-                />
+                <div className="relative aspect-video w-full overflow-hidden rounded-md">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <span>{post.date}</span>
                   <span>•</span>

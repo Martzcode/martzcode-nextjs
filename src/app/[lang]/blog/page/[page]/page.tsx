@@ -4,9 +4,20 @@ import { notFound } from "next/navigation";
 import { FeatureDemo } from "@/components/blocks/feature-section-with-grid";
 import { getPaginatedPosts } from "@/lib/content";
 import { getDictionary } from "@/i18n/dictionaries";
-import { isLocale, type Locale } from "@/i18n/config";
+import { isLocale, locales, type Locale } from "@/i18n/config";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
+
+export function generateStaticParams() {
+  const params: { lang: string; page: string }[] = [];
+  for (const locale of locales) {
+    const { totalPages } = getPaginatedPosts(1, locale);
+    for (let page = 2; page <= totalPages; page++) {
+      params.push({ lang: locale, page: String(page) });
+    }
+  }
+  return params;
+}
 
 type Params = { lang: string; page: string };
 

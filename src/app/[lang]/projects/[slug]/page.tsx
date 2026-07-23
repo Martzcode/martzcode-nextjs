@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -20,7 +21,7 @@ import { Button } from "@/components/ui/button";
 
 type Params = { lang: string; slug: string };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return getAllProjects().map((project) => ({ slug: project.slug }));
@@ -129,12 +130,15 @@ export default async function ProjectPage({
             </div>
 
             {project.coverImage && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={project.coverImage}
-                alt={project.title}
-                className="mt-4 w-full rounded-lg border border-border object-cover"
-              />
+              <div className="relative mt-4 aspect-video w-full overflow-hidden rounded-lg border border-border">
+                <Image
+                  src={project.coverImage}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 768px"
+                />
+              </div>
             )}
           </header>
 
