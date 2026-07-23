@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { siteConfig } from "@/config/site";
 
 interface Footer7Props {
@@ -26,12 +25,12 @@ interface Footer7Props {
 
 const defaultSocialLinks = [
   {
-    icon: <FaGithub className="size-5" />,
+    icon: <i className="devicon-github-original text-lg" />,
     href: siteConfig.github.url,
     label: "GitHub",
   },
   {
-    icon: <FaLinkedin className="size-5" />,
+    icon: <i className="devicon-linkedin-plain text-lg" />,
     href: siteConfig.linkedin.url,
     label: "LinkedIn",
   },

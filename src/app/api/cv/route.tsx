@@ -5,9 +5,17 @@ import { siteConfig } from "@/config/site";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale } from "@/i18n/config";
 
+const CACHE_TTL = 3600_000;
+const pdfCache = new Map<string, { buffer: Buffer; timestamp: number }>();
+
 export async function GET(request: NextRequest) {
   const lang = request.nextUrl.searchParams.get("lang") || "fr";
   const locale = isLocale(lang) ? lang : "fr";
+
+  const cached = pdfCache.get(locale);
+  if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+    return pdfResponse(cached.buffer);
+  }
 
   const dict = await getDictionary(locale);
 
@@ -29,10 +37,17 @@ export async function GET(request: NextRequest) {
     />
   );
 
-  return new NextResponse(new Uint8Array(pdf), {
+  pdfCache.set(locale, { buffer: pdf, timestamp: Date.now() });
+
+  return pdfResponse(pdf);
+}
+
+function pdfResponse(buffer: Buffer) {
+  return new NextResponse(new Uint8Array(buffer), {
     headers: {
       "Content-Type": "application/pdf",
       "Content-Disposition": `attachment; filename="cv-${siteConfig.name.toLowerCase().replace(/\s+/g, "-")}.pdf"`,
+      "Cache-Control": `public, max-age=${CACHE_TTL / 1000}, stale-while-revalidate=${(CACHE_TTL / 1000) * 2}`,
     },
   });
 }

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Mail, MapPin, Code2, GraduationCap, Briefcase, Download } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/config";
 import { siteConfig } from "@/config/site";
@@ -69,13 +68,15 @@ export default async function AboutPage({
               href={siteConfig.github.url}
               className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
             >
-              <FaGithub size={15} /> {siteConfig.github.handle}
+              <i className="devicon-github-original" style={{ fontSize: 15 }} />
+              {siteConfig.github.handle}
             </a>
             <a
               href={siteConfig.linkedin.url}
               className="inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
             >
-              <FaLinkedin size={15} /> {siteConfig.linkedin.handle}
+              <i className="devicon-linkedin-plain" style={{ fontSize: 15 }} />
+              {siteConfig.linkedin.handle}
             </a>
           </div>
           <div className="mt-6">
