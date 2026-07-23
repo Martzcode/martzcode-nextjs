@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
@@ -14,7 +16,7 @@ import { Badge } from "@/components/ui/badge";
 
 type Params = { lang: string; slug: string };
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }));
@@ -47,7 +49,7 @@ export default async function BlogPostPage({
 
   if (!post || !post.published || isUpcoming(post.date)) notFound();
 
-  const related = getRelatedPosts(post.slug, post.tags, locale);
+  const relatedPosts = getRelatedPosts(post.slug, post.tags, locale);
 
   return (
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 py-10">
@@ -106,38 +108,39 @@ export default async function BlogPostPage({
               ))}
             </div>
             {post.coverImage && (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={post.coverImage}
-                alt={post.title}
-                className="mt-4 w-full rounded-lg border border-border object-cover"
-              />
+              <div className="relative mt-4 aspect-video w-full overflow-hidden rounded-lg border border-border">
+                <Image
+                  src={post.coverImage}
+                  alt={post.title}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 768px"
+                />
+              </div>
             )}
           </header>
 
-          <div className="mt-8">
-            <MDXRemote
-              source={post.content}
-              components={mdxComponents}
-              options={{
-                mdxOptions: {
-                  remarkPlugins: [remarkGfm],
-                  rehypePlugins: [
-                    rehypeSlug,
-                    [rehypeAutolinkHeadings, { behavior: "wrap" }],
-                  ],
-                },
-              }}
-            />
-          </div>
+          <Suspense
+            fallback={
+              <div className="mt-8 space-y-4">
+                <div className="h-4 w-3/4 animate-pulse rounded bg-muted" />
+                <div className="h-4 w-full animate-pulse rounded bg-muted" />
+                <div className="h-4 w-5/6 animate-pulse rounded bg-muted" />
+                <div className="h-4 w-full animate-pulse rounded bg-muted" />
+                <div className="h-4 w-2/3 animate-pulse rounded bg-muted" />
+              </div>
+            }
+          >
+            <MdxContent source={post.content} />
+          </Suspense>
 
-          {related.length > 0 && (
+          {relatedPosts.length > 0 && (
             <section className="mt-16 border-t border-border pt-8">
               <h2 className="text-xl font-semibold text-foreground">
                 {dict.blog.relatedTitle}
               </h2>
               <ul className="mt-4 space-y-3">
-                {related.map((r) => (
+                {relatedPosts.map((r) => (
                   <li key={r.slug}>
                     <Link
                       href={`/${locale}/blog/${r.slug}`}
@@ -153,5 +156,25 @@ export default async function BlogPostPage({
         </div>
       </article>
     </main>
+  );
+}
+
+async function MdxContent({ source }: { source: string }) {
+  return (
+    <div className="mt-8">
+      <MDXRemote
+        source={source}
+        components={mdxComponents}
+        options={{
+          mdxOptions: {
+            remarkPlugins: [remarkGfm],
+            rehypePlugins: [
+              rehypeSlug,
+              [rehypeAutolinkHeadings, { behavior: "wrap" }],
+            ],
+          },
+        }}
+      />
+    </div>
   );
 }

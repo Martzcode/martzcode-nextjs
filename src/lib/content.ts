@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import { cache } from "react";
 import { z } from "zod";
 import { Post, PostPreview, TocItem } from "@/types/post";
 import { Project, ProjectPreview, ProjectStatus } from "@/types/project";
@@ -141,10 +142,10 @@ function isVisible(item: { published: boolean; date: string }, includeUnpublishe
 
 // ---------- BLOG ----------
 
-export function getAllPosts(
+export const getAllPosts = cache((
   locale?: string,
   includeUnpublished = false,
-): PostPreview[] {
+): PostPreview[] => {
   const loc = resolveLocale(locale);
   const posts = getSlugs("blog", loc).map((slug) => {
     const { data, readingTimeText } = readOne("blog", loc, slug);
@@ -164,9 +165,9 @@ export function getAllPosts(
   return sortByDateDesc(
     posts.filter((p) => isVisible(p, includeUnpublished)),
   );
-}
+});
 
-export function getPostBySlug(slug: string, locale?: string): Post | null {
+export const getPostBySlug = cache((slug: string, locale?: string): Post | null => {
   const loc = resolveLocale(locale);
   if (!getSlugs("blog", loc).includes(slug)) return null;
 
@@ -185,7 +186,7 @@ export function getPostBySlug(slug: string, locale?: string): Post | null {
     toc,
     content,
   };
-}
+});
 
 export function getPostsByTag(tag: string, locale?: string): PostPreview[] {
   return getAllPosts(locale).filter((p) => p.tags.includes(tag));
@@ -226,10 +227,10 @@ export function getRelatedPosts(
 
 // ---------- PROJETS (structure miroir) ----------
 
-export function getAllProjects(
+export const getAllProjects = cache((
   locale?: string,
   includeUnpublished = false,
-): ProjectPreview[] {
+): ProjectPreview[] => {
   const loc = resolveLocale(locale);
   const projects = getSlugs("projets", loc).map((slug) => {
     const { data, readingTimeText } = readOne("projets", loc, slug);
@@ -254,9 +255,9 @@ export function getAllProjects(
   return sortByDateDesc(
     projects.filter((p) => isVisible(p, includeUnpublished)),
   );
-}
+});
 
-export function getProjectBySlug(slug: string, locale?: string): Project | null {
+export const getProjectBySlug = cache((slug: string, locale?: string): Project | null => {
   const loc = resolveLocale(locale);
   if (!getSlugs("projets", loc).includes(slug)) return null;
 
@@ -280,6 +281,6 @@ export function getProjectBySlug(slug: string, locale?: string): Project | null 
     toc,
     content,
   };
-}
+});
 
 export type { ContentType, ProjectStatus };

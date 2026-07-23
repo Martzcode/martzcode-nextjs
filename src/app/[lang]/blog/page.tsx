@@ -2,7 +2,7 @@ import { FeatureDemo } from "@/components/blocks/feature-section-with-grid";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/config";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 export default async function BlogPage({
   params,
