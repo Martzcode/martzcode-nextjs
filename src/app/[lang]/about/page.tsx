@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Mail, MapPin, Code2, GraduationCap, Briefcase, Download } from "lucide-react";
+import { Mail, MapPin, Code2, GraduationCap, Briefcase, Download, Languages } from "lucide-react";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, type Locale } from "@/i18n/config";
 import { siteConfig } from "@/config/site";
@@ -99,6 +99,25 @@ export default async function AboutPage({
         <p className="max-w-2xl leading-8 text-muted-foreground">
           {dict.about.summary}
         </p>
+      </section>
+
+      {/* Languages */}
+      <section className="mt-12">
+        <h2 className="mb-3 flex items-center gap-2 text-xl font-semibold text-foreground">
+          <Languages size={20} className="text-cyan-500" /> {dict.about.languagesLabel}
+        </h2>
+        <div className="flex flex-wrap gap-4">
+          {dict.about.languages.map((lang: { name: string; level: string }) => (
+            <span
+              key={lang.name}
+              className="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm text-muted-foreground"
+            >
+              <span className="font-medium text-foreground">{lang.name}</span>
+              <span className="text-xs opacity-60">—</span>
+              {lang.level}
+            </span>
+          ))}
+        </div>
       </section>
 
       {/* Experience timeline */}

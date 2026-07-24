@@ -85,7 +85,12 @@
         "content": "Advanced training in auditing, management control, and financial accounting. Skilled in financial analysis, account consolidation, budget management, and reporting. Delivered by INSCAE / IAE Poitiers."
       }
     ],
-    "downloadLabel": "Download CV"
+    "downloadLabel": "Download CV",
+    "languagesLabel": "Languages",
+    "languages": [
+      { "name": "French", "level": "Native" },
+      { "name": "English", "level": "Fluent" }
+    ]
   },
   "contact": {
     "badge": "Reach Out To Us",

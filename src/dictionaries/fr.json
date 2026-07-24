@@ -85,7 +85,12 @@
         "content": "Formation approfondie en audit, contrôle de gestion et comptabilité financière. Compétences en analyse financière, consolidation des comptes, gestion budgétaire et reporting. Dispensé par l'INSCAE / IAE Poitiers."
       }
     ],
-    "downloadLabel": "Télécharger le CV"
+    "downloadLabel": "Télécharger le CV",
+    "languagesLabel": "Langues",
+    "languages": [
+      { "name": "Français", "level": "Natif" },
+      { "name": "Anglais", "level": "Courant" }
+    ]
   },
   "contact": {
     "badge": "Contactez-moi",
