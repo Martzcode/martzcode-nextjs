@@ -8,6 +8,12 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "browserslist": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version",
+    "last 1 edge version"
+  ],
   "dependencies": {
     "@radix-ui/react-slot": "^1.3.0",
     "@react-pdf/renderer": "^4.5.1",
