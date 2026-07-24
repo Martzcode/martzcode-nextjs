@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import "../globals.css";
-import "devicon/devicon.min.css";
-import "../devicon-fonts.css";
 import Navbar from "@/app/_components/Navbar";
+import { DeviconStyles } from "@/app/_components/DeviconStyles";
 import { Footer7 } from "@/components/ui/footer-7";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLocale, locales, type Locale } from "@/i18n/config";
@@ -73,6 +72,7 @@ export default async function RootLayout({
           type="font/ttf"
           crossOrigin="anonymous"
         />
+        <DeviconStyles />
       </head>
       <body className="min-h-full flex flex-col px-4 sm:px-0 sm:pt-20 pb-28 sm:pb-0">
         <Navbar locale={locale} labels={dict.nav} />
