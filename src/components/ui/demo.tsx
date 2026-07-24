@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { siteConfig } from "@/config/site";
 
@@ -19,20 +19,7 @@ export default function Example({ dict }: { dict: Dictionary["contact"] }) {
           {siteConfig.email}
         </a>
       </p>
-      <div className="grid md:grid-cols-3 mt-16">
-        <div>
-          <span className="flex items-center justify-center text-indigo-500 bg-indigo-500/20 p-2.5 aspect-square rounded-full size-10">
-            <Mail className="size-5" />
-          </span>
-          <p className="text-lg font-bold mt-2">{dict.emailLabel}</p>
-          <p className="text-gray-500 mt-1 mb-4">{dict.emailDescription}</p>
-          <a
-            href={`mailto:${siteConfig.email}`}
-            className="text-indigo-600 font-semibold"
-          >
-            {siteConfig.email}
-          </a>
-        </div>
+      <div className="grid md:grid-cols-2 mt-16">
           <div>
             <span className="flex items-center justify-center text-indigo-500 bg-indigo-500/20 p-2.5 aspect-square rounded-full size-10">
               <i className="devicon-linkedin-plain text-xl" />
