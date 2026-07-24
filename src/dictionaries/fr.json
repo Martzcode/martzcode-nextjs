@@ -58,18 +58,18 @@
     "education": "Formation",
     "experienceItems": [
       {
-        "date": "2023 — Aujourd'hui",
-        "title": "Ingénieur Full-Stack Senior · Nebula Labs",
+        "date": "Août 2025 — Présent",
+        "title": "Ingénieur Full-stack · Calyps",
         "content": "Pilote l'architecture d'une plateforme d'analytique temps réel servant plus de 2 M d'utilisateurs par jour. A construit le design system et encadré une équipe de cinq ingénieurs, livrant des fonctionnalités du concept à la production avec Next.js, TypeScript et Go."
       },
       {
-        "date": "2020 — 2023",
-        "title": "Ingénieur Frontend · Orbit Studio",
+        "date": "Février 2019 — Septembre 2022",
+        "title": "Auditeur Financier · Delta Audit et Associés",
         "content": "A créé des interfaces accessibles et pixel-perfect pour des projets clients primés. A introduit une bibliothèque de composants qui a réduit le délai de livraison de 40 % et défendu des budgets de performance au sein de l'équipe."
       },
       {
-        "date": "2018 — 2020",
-        "title": "Développeur Junior · Brightseed",
+        "date": "Avril 2017 — Juillet 2018",
+        "title": "Auditeur Financier · EY Madagascar",
         "content": "A développé des outils internes et des sites vitrines, apprenant le métier d'un code propre et maintenable. A piloté la migration d'une application Rails legacy vers une stack React moderne."
       }
     ],

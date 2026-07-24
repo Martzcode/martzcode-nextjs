@@ -58,18 +58,18 @@
     "education": "Education",
     "experienceItems": [
       {
-        "date": "2023 — Present",
-        "title": "Senior Full-Stack Engineer · Nebula Labs",
+        "date": "August 2025 — Present",
+        "title": "Full-stack Engineer · Calyps",
         "content": "Lead the architecture of a real-time analytics platform serving 2M+ daily users. Built the design system and mentored a team of five engineers, shipping features from concept to production with Next.js, TypeScript and Go."
       },
       {
-        "date": "2020 — 2023",
-        "title": "Frontend Engineer · Orbit Studio",
+        "date": "February 2019 — September 2022",
+        "title": "Financial Auditor · Delta Audit et Associés",
         "content": "Crafted pixel-perfect, accessible interfaces for award-winning client projects. Introduced a component library that cut delivery time by 40% and championed performance budgets across the team."
       },
       {
-        "date": "2018 — 2020",
-        "title": "Junior Developer · Brightseed",
+        "date": "April 2017 — July 2018",
+        "title": "Financial Auditor · EY Madagascar",
         "content": "Developed internal tools and marketing sites, learning the craft of clean, maintainable code. Owned the migration of a legacy Rails app to a modern React stack."
       }
     ],
